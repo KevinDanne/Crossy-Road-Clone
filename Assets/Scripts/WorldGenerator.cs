@@ -7,7 +7,7 @@ using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
-public class WorldGeneration : MonoBehaviour
+public class WorldGenerator : MonoBehaviour
 {
     [SerializeField] private int _initialSpawnCount = 10;
     [SerializeField] private GameObject[] _prefabs;
