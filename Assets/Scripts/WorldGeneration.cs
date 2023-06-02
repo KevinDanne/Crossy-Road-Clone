@@ -9,14 +9,14 @@ using Vector3 = UnityEngine.Vector3;
 
 public class WorldGeneration : MonoBehaviour
 {
-    [SerializeField] private int initialSpawnCount = 10;
-    [SerializeField] private GameObject[] prefabs;
-    [SerializeField] private float spawnIntervall = 3f;
-    [SerializeField] private int maxWorldObjects = 20;
+    [SerializeField] private int _initialSpawnCount = 10;
+    [SerializeField] private GameObject[] _prefabs;
+    [SerializeField] private float _spawnIntervall = 1f;
+    [SerializeField] private int _maxWorldObjects = 20;
 
-    [SerializeField] private List<GameObject> worldObjects = new List<GameObject>();
+    [SerializeField] private List<GameObject> _worldObjects = new List<GameObject>();
 
-    private float elapsedTimeSinceLastSpawn = 0;
+    private float _elapsedTimeSinceLastSpawn = 0;
 
     private void Start()
     {
@@ -30,7 +30,7 @@ public class WorldGeneration : MonoBehaviour
 
     private void InitializeWorld()
     {
-        for (int i = 0; i < initialSpawnCount; i++)
+        for (int i = 0; i < _initialSpawnCount; i++)
         {
             SpawnRandomPrefab();
         }
@@ -38,21 +38,21 @@ public class WorldGeneration : MonoBehaviour
 
     private void HandleWorldObjectSpawn()
     {
-        elapsedTimeSinceLastSpawn += Time.deltaTime;
-        if (elapsedTimeSinceLastSpawn >= spawnIntervall)
+        _elapsedTimeSinceLastSpawn += Time.deltaTime;
+        if (_elapsedTimeSinceLastSpawn >= _spawnIntervall)
         {
             SpawnRandomPrefab();
-            elapsedTimeSinceLastSpawn = 0f;
+            _elapsedTimeSinceLastSpawn = 0f;
         }
     }
 
     private void SpawnRandomPrefab()
     {
-        int prefabIndex = UnityEngine.Random.Range(0, prefabs.Length);
-        GameObject prefab = prefabs[prefabIndex];
+        int prefabIndex = UnityEngine.Random.Range(0, _prefabs.Length);
+        GameObject prefab = _prefabs[prefabIndex];
 
         Vector3 spawnPoint = Vector3.zero;
-        spawnPoint.z = worldObjects.Last().transform.position.z + (prefab.transform.localScale.z * 10) / 2 + (worldObjects.Last().transform.localScale.z * 10) / 2;
+        spawnPoint.z = _worldObjects.Last().transform.position.z + (prefab.transform.localScale.z * 10) / 2 + (_worldObjects.Last().transform.localScale.z * 10) / 2;
 
         GameObject createdObject = Instantiate( 
             prefab,
@@ -60,17 +60,17 @@ public class WorldGeneration : MonoBehaviour
             new Quaternion(0, 0, 0, 0),
             transform
             );
-        worldObjects.Add(createdObject);
+        _worldObjects.Add(createdObject);
         
         CleanupWorldObjects();
     }
 
     private void CleanupWorldObjects()
     {
-        while (worldObjects.Count > maxWorldObjects)
+        while (_worldObjects.Count > _maxWorldObjects)
         {
-            Destroy(worldObjects.First());
-            worldObjects.RemoveAt(0);
+            Destroy(_worldObjects.First());
+            _worldObjects.RemoveAt(0);
         }
     }
 }

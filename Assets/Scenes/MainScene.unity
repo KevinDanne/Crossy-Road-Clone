@@ -412,7 +412,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36aa2a3f66f76f47a2c23ed7d5df1b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 963194228}
+  _camera: {fileID: 963194228}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,7 +510,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42756a65728178d4abce292cd94b1100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  _speed: 10
 --- !u!1 &1238768453
 GameObject:
   m_ObjectHideFlags: 0
@@ -820,14 +820,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 221b91a3b0f6f1945aa2ce40dc315d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpawnCount: 10
-  prefabs:
+  _initialSpawnCount: 10
+  _prefabs:
   - {fileID: 1900395170638051732, guid: ffc31ce03984e394c897a185cdfc4865, type: 3}
   - {fileID: 9182857960624165689, guid: 64ec39cf442c7ab4ba335f038a9e29b3, type: 3}
   - {fileID: 4782526468600079826, guid: 30fce6366746c44428e15dcadbc1ebb2, type: 3}
-  spawnIntervall: 1
-  maxWorldObjects: 20
-  worldObjects:
+  _spawnIntervall: 1
+  _maxWorldObjects: 20
+  _worldObjects:
   - {fileID: 1265869671}
   - {fileID: 1503879797}
   - {fileID: 1724329946}
@@ -1010,6 +1010,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5507902890326752770, guid: e3cdac4eaf100094ea10fce13c0bcc68, type: 3}
       propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1238768455}
+    - target: {fileID: 5507902890326752770, guid: e3cdac4eaf100094ea10fce13c0bcc68, type: 3}
+      propertyPath: _scoreText
       value: 
       objectReference: {fileID: 1238768455}
     m_RemovedComponents: []

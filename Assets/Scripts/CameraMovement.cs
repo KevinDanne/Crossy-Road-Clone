@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 10f;
+    [SerializeField] private float _speed = 10f;
 
     private void Update()
     {
@@ -14,6 +14,6 @@ public class CameraMovement : MonoBehaviour
 
     private void Move()
     {
-        transform.position += new Vector3(0, 0, speed * Time.deltaTime);
+        transform.position += new Vector3(0, 0, _speed * Time.deltaTime);
     }
 }

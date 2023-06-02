@@ -6,22 +6,22 @@ using UnityEngine;
 
 public class Score : MonoBehaviour
 {
-    [SerializeField]  private TextMeshProUGUI scoreText;
+    [SerializeField]  private TextMeshProUGUI _scoreText;
 
-    private PlayerMovement playerMovement;
+    private PlayerMovement _playerMovement;
+    private Transform _transform;
     
-    private Transform transform;
-    private float score = 0f;
+    private float _score = 0f;
 
     private void Awake()
     {
-        transform = GetComponent<Transform>();
-        playerMovement = GetComponent<PlayerMovement>();
+        _transform = GetComponent<Transform>();
+        _playerMovement = GetComponent<PlayerMovement>();
     }
 
     private void Update()
     {
-        score = Math.Max(score, transform.position.z);
-        scoreText.text = "Score: " + Math.Floor(score / playerMovement.JumpDistance());
+        _score = Math.Max(_score, transform.position.z);
+        _scoreText.text = "Score: " + Math.Floor(_score / _playerMovement.JumpDistance());
     }
 }
