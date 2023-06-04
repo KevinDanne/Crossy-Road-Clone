@@ -3,10 +3,10 @@ using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField] private float _jumpDistance = 8f;
-    [SerializeField] private float _jumpHeight = 2f;
+    [SerializeField] private float _jumpHeight = 1f;
 
     private Collider _collider;
     
@@ -41,6 +41,14 @@ public class PlayerMovement : MonoBehaviour
         if (!context.performed || !isGrounded()) return;
         transform.position += new Vector3(_jumpDistance, _jumpHeight, 0);
         transform.eulerAngles = new Vector3(0, 90, 0);
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("Vehicle"))
+        {
+            GameManager.Instance.GameOver();
+        }
     }
 
     private bool isGrounded()

@@ -95,8 +95,8 @@ GameObject:
   - component: {fileID: 1633889439668509799}
   - component: {fileID: 1633889439668509796}
   - component: {fileID: 5349760716695817380}
-  - component: {fileID: 1733803685749230289}
   - component: {fileID: 5507902890326752770}
+  - component: {fileID: 8538115149568864016}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -147,8 +147,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 4.439191, y: 6.3827615, z: 2.8659604}
-  m_Center: {x: -0.46668625, y: 0.7689569, z: 0.0069110394}
+  m_Size: {x: 2.8376384, y: 6.3827615, z: 4.088835}
+  m_Center: {x: 0.0027344227, y: 0.7689569, z: -0.6045259}
 --- !u!114 &5349760716695817380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -243,20 +243,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &1733803685749230289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1633889439668509804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3998ccdcbbd0b52408a69632e06fb77b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  jumpDistance: 8
-  jumpHeight: 2
 --- !u!114 &5507902890326752770
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,4 +255,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c613a1f27e73178448ecd575ab37ca15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
+  _scoreText: {fileID: 0}
+--- !u!114 &8538115149568864016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1633889439668509804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3998ccdcbbd0b52408a69632e06fb77b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _jumpDistance: 8
+  _jumpHeight: 2
