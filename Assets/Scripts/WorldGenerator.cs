@@ -50,9 +50,13 @@ public class WorldGenerator : MonoBehaviour
     {
         int prefabIndex = UnityEngine.Random.Range(0, _prefabs.Length);
         GameObject prefab = _prefabs[prefabIndex];
+        Renderer prefabRenderer = prefab.GetComponentInChildren<Renderer>();
+
+        GameObject lastSpawnedWorldObject = _worldObjects.Last();
+        Renderer lastSpawnedWorldObjectRenderer = lastSpawnedWorldObject.GetComponentInChildren<Renderer>();
 
         Vector3 spawnPoint = Vector3.zero;
-        spawnPoint.z = _worldObjects.Last().transform.position.z + (prefab.transform.localScale.z * 10) / 2 + (_worldObjects.Last().transform.localScale.z * 10) / 2;
+        spawnPoint.z += _worldObjects.Last().transform.position.z + prefabRenderer.bounds.size.z / 2 + lastSpawnedWorldObjectRenderer.bounds.size.z / 2;
 
         GameObject createdObject = Instantiate( 
             prefab,
